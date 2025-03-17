@@ -1,3 +1,5 @@
+import LLD.Student;
+
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -74,6 +76,18 @@ public class Test {
         s.setCharAt(1, ' ');
         s.setCharAt(3, ' ');
         System.out.println(s.toString().trim());
+
+        Student s1 = new Student("aakash", 78);
+        Student s2 = new Student("nupur", 70);
+        Student s3 = new Student("tanvi", 81);
+
+        List<Student> students = new ArrayList<>();
+        students.add(s1);students.add(s2);students.add(s3);
+
+        Collections.sort(students, (Student o1, Student o2) -> o2.name.compareTo(o1.name));
+        for (Student student : students) {
+            System.out.println(student.name);
+        }
 
     }
 

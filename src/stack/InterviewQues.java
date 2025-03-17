@@ -11,6 +11,7 @@ public class InterviewQues {
         //-1 because last call would break the condition and yet would be added to the count
         //System.out.println(gameOfStacks(a, b, maxSum) - 1);
         System.out.println(minInsertions(")))())("));
+        System.out.println(validParentheses("([])"));
     }
 
     private static int gameOfStacks(int[] a, int[] b, int maxSum) {
@@ -105,6 +106,23 @@ public class InterviewQues {
         }
         count += 2*stack.size();
         return count;
+    }
+
+    public static boolean validParentheses(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == ')' && stack.peek() == '(') {
+                stack.pop();
+            } else if (c == '}' && stack.peek() == '{') {
+                stack.pop();
+            } else if (c == ']' && stack.peek() == '[') {
+                stack.pop();
+            } else {
+                stack.push(c);
+            }
+        }
+        return stack.isEmpty();
     }
 }
 
